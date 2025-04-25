@@ -1,0 +1,21 @@
+image:
+  repository: my-app
+  tag: v1.0.0
+logging:
+  enabled: true
+  level: info
+  provider: fluentd
+metrics:
+  enabled: true
+  path: /metrics
+  port: 9100
+nodeSelector:
+  disktype: ssd
+port: 8080
+service:
+  type: ClusterIP
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: config-weaver
