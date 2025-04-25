@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "my-app values schema",
+    "type": "object",
+    "properties": {
+      "replicaCount": { "type": "integer", "minimum": 1 },
+      "debug": { "type": "boolean" },
+      "image": {
+        "type": "object",
+        "properties": {
+          "repository": { "type": "string" },
+          "tag": { "type": "string" },
+          "pullPolicy": { "type": "string", "enum": ["Always", "IfNotPresent", "Never"] }
+        },
+        "required": ["repository", "tag"]
+      },
+      "resources": {
+        "type": "object",
+        "properties": {
+          "limits": {
+            "type": "object",
+            "properties": {
+              "cpu": { "type": "string" },
+              "memory": { "type": "string" }
+            },
+            "required": ["cpu", "memory"]
+          }
+        }
+      },
+      "service": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "port": { "type": "integer" }
+        },
+        "required": ["type", "port"]
+      },
+      "logging": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "level": { "type": "string" },
+          "provider": { "type": "string" }
+        }
+      },
+      "metrics": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "port": { "type": "integer" },
+          "path": { "type": "string" }
+        }
+      }
+    },
+    "required": ["replicaCount", "image", "service"]
+  }
+  

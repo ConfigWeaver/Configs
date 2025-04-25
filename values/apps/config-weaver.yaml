@@ -1,0 +1,6 @@
+image:
+  repository: my-app
+  tag: v1.0.0
+service:
+  type: ClusterIP
+port: 8080

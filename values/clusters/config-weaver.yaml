@@ -1,0 +1,7 @@
+nodeSelector:
+  disktype: ssd
+tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "config-weaver"
+    effect: "NoSchedule"

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-weaver
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://your.git.repo/Configs.git
+    targetRevision: HEAD
+    path: manifests/config-weaver
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: config-weaver
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
