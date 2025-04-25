@@ -1,2 +1,27 @@
-/var/folders/hd/tgdm_t312md_031hsv0f4cj00000gp/T/tmp4m7d1487/values/presets/metrics.yaml
-...
+debug: true
+image:
+  repository: my-app
+  tag: v1.0.0
+logging:
+  enabled: true
+  level: info
+  provider: fluentd
+metrics:
+  enabled: true
+  path: /metrics
+  port: 9100
+nodeSelector:
+  disktype: ssd
+port: 8080
+replicaCount: 1
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+service:
+  type: ClusterIP
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: config-weaver
