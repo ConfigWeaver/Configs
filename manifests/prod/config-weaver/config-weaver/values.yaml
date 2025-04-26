@@ -6,10 +6,6 @@ logging:
   enabled: true
   level: info
   provider: fluentd
-metrics:
-  enabled: true
-  path: /metrics
-  port: 9100
 nodeSelector:
   disktype: ssd
 port: 8080
